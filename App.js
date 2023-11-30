@@ -1,22 +1,13 @@
 import React from 'react';
-import { View, StyleSheet, StatusBar } from 'react-native';
-import CurrentWeather from './src/screens/CurrentWeather';
-import UpCommingWeather from './src/screens/UpCommingWeather';
-import City from './src/screens/City';
+import { NavigationContainer } from '@react-navigation/native';
+import Tabs from './src/components/Tabs';
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <CurrentWeather />
-      {/* <UpCommingWeather /> */}
-      {/* <City /> */}
-    </View>
+    <NavigationContainer>
+      <Tabs />
+    </NavigationContainer>
   );
 };
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-  },
-});
+
 export default App;
