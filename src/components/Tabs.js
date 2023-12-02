@@ -11,18 +11,18 @@ const Tabs = ({ weather }) => {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: 'tomato',
-        tabBarInactiveTintColor: 'gray',
+        tabBarActiveTintColor: '#3498db', // Blue color for active tab
+        tabBarInactiveTintColor: '#bdc3c7', // Light gray color for inactive tab
         tabBarStyle: {
-          backgroundColor: 'lightblue',
+          backgroundColor: '#2c3e50', // Dark blue color for the tab bar
         },
         headerStyle: {
-          backgroundColor: 'lightblue',
+          backgroundColor: '#2c3e50', // Dark blue color for the header
         },
         headerTitleStyle: {
           fontWeight: 'bold',
           fontSize: 25,
-          color: 'tomato',
+          color: '#3498db', // Blue color for header title
           textAlign: 'center',
         },
       }}
@@ -34,7 +34,7 @@ const Tabs = ({ weather }) => {
             <Feather
               name="droplet"
               size={25}
-              color={focused ? 'tomato' : 'black'}
+              color={focused ? '#3498db' : '#bdc3c7'} // Blue for focused, light gray for unfocused
             />
           ),
         }}
@@ -48,7 +48,7 @@ const Tabs = ({ weather }) => {
             <Feather
               name="clock"
               size={25}
-              color={focused ? 'tomato' : 'black'}
+              color={focused ? '#3498db' : '#bdc3c7'} // Blue for focused, light gray for unfocused
             />
           ),
         }}
@@ -62,7 +62,7 @@ const Tabs = ({ weather }) => {
             <Feather
               name="home"
               size={25}
-              color={focused ? 'tomato' : 'black'}
+              color={focused ? '#3498db' : '#bdc3c7'} // Blue for focused, light gray for unfocused
             />
           ),
         }}

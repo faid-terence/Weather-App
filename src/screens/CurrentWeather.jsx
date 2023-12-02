@@ -15,7 +15,7 @@ const CurrentWeather = ({ weatherData }) => {
     <SafeAreaView
       style={[
         styles.wrapper,
-        { backgroundColor: weatherType[weatherCondition].backgroundColor },
+        { backgroundColor: '#3498db' },
       ]}
     >
       <View style={styles.container}>
@@ -48,7 +48,7 @@ const CurrentWeather = ({ weatherData }) => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: 'pink',
+    backgroundColor: '#3498db',
   },
   container: {
     flex: 1,
@@ -56,15 +56,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   tempStyles: {
-    color: 'black',
+    color: 'white',
     fontSize: 48,
   },
   feels: {
     fontSize: 30,
-    color: 'black',
+    color: 'white',
   },
   highLow: {
-    color: 'black',
+    color: 'white',
     fontSize: 20,
   },
   highLowWrapper: {
@@ -78,9 +78,11 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: 48,
+    color: 'white',
   },
   message: {
     fontSize: 30,
+    color: 'white',
   },
 });
 

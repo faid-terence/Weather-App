@@ -5,38 +5,10 @@ import {
   StyleSheet,
   FlatList,
   StatusBar,
-  ImageBackground,
 } from 'react-native';
 import ListItem from '../components/ListItem';
 
-// const DATA = [
-//   {
-//     dt_txt: '2023-02-18 12:00:00',
-//     main: {
-//       temp_max: 8.55,
-//       temp_min: 7.55,
-//     },
-//     weather: [{ main: 'Clear' }],
-//   },
-//   {
-//     dt_txt: '2023-02-19 15:00:00',
-//     main: {
-//       temp_max: 9.55,
-//       temp_min: 6.55,
-//     },
-//     weather: [{ main: 'Clouds' }],
-//   },
-//   {
-//     dt_txt: '2023-02-20 18:00:00',
-//     main: {
-//       temp_max: 10.55,
-//       temp_min: 5.57,
-//     },
-//     weather: [{ main: 'Rain' }],
-//   },
-// ];
-
-const UpcomingWeather = ({weatherData}) => {
+const UpcomingWeather = ({ weatherData }) => {
   const renderItem = ({ item }) => (
     <ListItem
       condition={item.weather[0].main}
@@ -46,20 +18,16 @@ const UpcomingWeather = ({weatherData}) => {
     />
   );
 
-  const { container, image } = styles;
+  const { container, headerText } = styles;
   return (
     <SafeAreaView style={container}>
-      <ImageBackground
-        source={require('../../assets/upcoming-bg.jpg')}
-        style={image}
-      >
-       
-        <FlatList
-          data={weatherData}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.dt_txt}
-        />
-      </ImageBackground>
+      <Text style={headerText}>Upcoming Weather</Text>
+      <FlatList
+        data={weatherData}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.dt_txt}
+        contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 16 }}
+      />
     </SafeAreaView>
   );
 };
@@ -67,12 +35,16 @@ const UpcomingWeather = ({weatherData}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-    backgroundColor: 'royalblue',
+    backgroundColor: '#3498db',
+    paddingTop: StatusBar.currentHeight || 0,
   },
-
-  image: {
-    flex: 1,
+  headerText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: 'white',
+    textAlign: 'center',
+    marginBottom: 16,
+    marginTop: 24,
   },
 });
 
