@@ -8,21 +8,23 @@ import {
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import IconText from '../components/IconText';
+import moment from 'moment';
 
-const City = () => {
+const City = ({ weatherData }) => {
+  const { name, country, population, sunrise, sunset } = weatherData;
   return (
     <SafeAreaView style={styles.container}>
       <ImageBackground
         source={require('../../assets/city-bg2.jpg')}
         style={styles.image}
       >
-        <Text style={[styles.cityName, styles.cityText]}>London</Text>
-        <Text style={[styles.countryName, styles.cityText]}>UK</Text>
+        <Text style={[styles.cityName, styles.cityText]}>{name}</Text>
+        <Text style={[styles.countryName, styles.cityText]}>{country}</Text>
         <View style={styles.populationWrapper}>
           <IconText
             iconName={'user'}
             iconColor={'red'}
-            bodyText={'80000'}
+            bodyText={`Population: ${population}`}
             bodyTextStyle={styles.populationText}
           />
         </View>
@@ -30,13 +32,13 @@ const City = () => {
           <IconText
             iconName={'sunrise'}
             iconColor={'white'}
-            bodyText={'6:48 : 43AM'}
+            bodyText={moment(sunrise).format('h:mm:ss a')}
             bodyTextStyle={styles.riseSetText}
           />
           <IconText
             iconName={'sunset'}
             iconColor={'white'}
-            bodyText={'5:57 : 23 AM'}
+            bodyText={moment(sunset).format('h:mm:ss a')}
             bodyTextStyle={styles.riseSetText}
           />
         </View>
