@@ -8,10 +8,13 @@ import { useGetWeather } from './src/hooks/useGetWeather';
 
 const App = () => {
   const [isLoading, errorMsg, weather] = useGetWeather();
-  console.log(isLoading, errorMsg, weather);
 
-  if (weather) {
-    console.log(weather);
+  if (weather && weather.list) {
+    return (
+      <NavigationContainer>
+        <Tabs weather={weather} />
+      </NavigationContainer>
+    );
   }
 
   if (isLoading) {
@@ -21,13 +24,6 @@ const App = () => {
       </View>
     );
   }
-
-  return (
-    <NavigationContainer>
-      <Tabs />
-      {/* <Counter /> */}
-    </NavigationContainer>
-  );
 };
 const styles = StyleSheet.create({
   container: {
