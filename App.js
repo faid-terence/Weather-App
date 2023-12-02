@@ -5,6 +5,7 @@ import Tabs from './src/components/Tabs';
 import * as Location from 'expo-location';
 import { API_URL, WEATHER_API_KEY } from '@env';
 import { useGetWeather } from './src/hooks/useGetWeather';
+import ErrorItem from './src/components/ErrorItem';
 
 const App = () => {
   const [isLoading, errorMsg, weather] = useGetWeather();
@@ -17,13 +18,15 @@ const App = () => {
     );
   }
 
-  if (isLoading) {
-    return (
-      <View style={styles.container}>
+  return (
+    <View style={styles.container}>
+      {isLoading ? (
         <ActivityIndicator size={'large'} color={'blue'} />
-      </View>
-    );
-  }
+      ) : (
+        <ErrorItem />
+      )}
+    </View>
+  );
 };
 const styles = StyleSheet.create({
   container: {
