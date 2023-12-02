@@ -3,27 +3,15 @@ import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import Tabs from './src/components/Tabs';
 import * as Location from 'expo-location';
-import {API_URL} from '@env';
+import { API_URL, WEATHER_API_KEY } from '@env';
+import { useGetWeather } from './src/hooks/useGetWeather';
+
 const App = () => {
+  const [isLoading, errorMsg, weather] = useGetWeather();
+  console.log(isLoading, errorMsg, weather);
 
-  const [isLoading, setIsLoading] = useState(true);
-  const [location, setLocation] = useState(null);
-  const [errorMsg, setErrorMsg] = useState(null);
-  console.log(API_URL)
-  useEffect(() => {
-    (async () => {
-      let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== 'granted') {
-        setErrorMsg('permission to access location was denied');
-        return;
-      }
-      let { location } = await Location.getCurrentPositionAsync({});
-      setLocation(location);
-    })();
-  }, []);
-
-  if (location) {
-    console.log(location);
+  if (weather) {
+    console.log(weather);
   }
 
   if (isLoading) {
